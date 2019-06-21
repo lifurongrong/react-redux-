@@ -1,0 +1,10 @@
+react-redux提供了connect和Provider
+
+connect是个高阶函数，接收两层参数，第一层接收两个函数，mapStateToProps和mapDispatchToProps
+mapStateToProps是让使用者自己定义自己的组件所需要使用store中的哪些数据
+mapDispatchToProps可以让使用者在自己的组件中调用dispatch，可以直接是个对象
+第二层参数接收一个组件
+connect最终会返回一个新的组件，要返回的组件上挂载了一些属性，通过父传子的方式传递给第二层传递进来的组件，这样子组件通过this.props可以获取
+
+Provider是一个组件，目的是把设置context的动作放在自己身上，也就是不让用户操作context
+一般放在根组件上，<Provider store={store}>...</Provider>这样根组件的context挂载了store属性，它的所有后代组件都可以通过context调用到store属性
